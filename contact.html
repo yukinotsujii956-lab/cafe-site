@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact | Leaf & Latte</title>
+  <meta name="description" content="お問い合わせ、予約リクエスト、アクセス情報。">
+  <link rel="stylesheet" href="css/style.css">
+  <meta property="og:title" content="Leaf & Latte">
+  <meta property="og:description" content="ニセコの小さなロースタリーカフェ">
+  <meta property="og:image" content="images/og.jpg">
+  <link rel="icon" href="images/favicon.png">
+
+</head>
+<body>
+  
+<header class="site-header">
+  <div class="container nav">
+    <a class="brand" href="index.html">
+      <span class="logo" aria-hidden="true"></span>
+      <span>Leaf & Latte</span>
+    </a>
+    <nav aria-label="Primary">
+      <ul>
+        <li><a class="" href="index.html">Home</a></li>
+        <li><a class="" href="menu.html">Menu</a></li>
+        <li><a class="" href="about.html">About</a></li>
+        <li><a class="active" href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+  <main class="container section">
+    <div class="head">
+      <h2>お問い合わせ / 予約</h2>
+      <p>下記フォームからご連絡ください（デモ／送信はされません）</p>
+    </div>
+    <form class="form" action="https://formspree.io/f/xxxxxx" method="POST">
+      <div>
+        <label for="name">お名前</label>
+        <input id="name" name="name" required>
+      </div>
+      <div>
+        <label for="email">メールアドレス</label>
+        <input id="email" name="email" type="email" required>
+      </div>
+      <div class="full">
+        <label for="date">来店希望日</label>
+        <input id="date" name="date" type="date">
+      </div>
+      <div class="full">
+        <label for="msg">内容</label>
+        <textarea id="msg" name="message" placeholder="予約人数、時間などをご記入ください"></textarea>
+      </div>
+      <div class="full">
+        <button class="btn" type="submit">送信</button>
+      </div>
+    </form>
+
+    <div class="section">
+      <div class="head">
+        <h2>アクセス</h2>
+        <p>下の地図はサンプルです</p>
+      </div>
+      <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d404770.7271785947!2d140.365!3d42.885!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f73936bbd1e4c6b%3A0x7582a08a1e7b4d64!2sNiseko!5e0!3m2!1sen!2sjp!4v1700000000000" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </main>
+  
+<footer class="site-footer">
+  <div class="container">
+    <div>© 2025 Leaf & Latte Coffee Roasters — Crafted in Niseko.</div>
+    <div class="small mt-1">This is a demo site for a portfolio. All images are placeholders.</div>
+  </div>
+</footer>
+
+</body>
+</html>
