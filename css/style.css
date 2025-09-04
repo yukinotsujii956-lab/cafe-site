@@ -1,15 +1,14 @@
 
 /* ====== Base ====== */
 :root{
-  --bg:#fffdf9;
-  --ink:#2e2a27;
-  --muted:#6b655f;
-  --primary:#1e3a8a; /* 例: 深い青 */
-  --accent:#eab308;  /* 例: ハニー */
-  --card:#ffffff;
-  --border:#ece7e1;
+  /* ナチュラル */
+  --bg:#fffdf9; --ink:#2e2a27; --muted:#6b655f;
+  --primary:#3b7a57;  /* 深いグリーン */
+  --accent:#c58b5f;   /* ラテブラウン */
+  --card:#ffffff; --border:#ece7e1;
 }
-
+.brand .logo{ background:linear-gradient(135deg,var(--primary),var(--accent)); 
+}
 
 *{box-sizing:border-box}
 html{font-size:16px;scroll-behavior:smooth}
