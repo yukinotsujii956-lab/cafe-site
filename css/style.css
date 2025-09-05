@@ -141,3 +141,10 @@ textarea{min-height:140px;resize:vertical}
     opacity: 1 !important;
   }
 }
+
+/* Lang switch */
+.lang { display:flex; gap:.5rem; align-items:center; margin-left:.75rem; }
+.lang a{ padding:.35rem .6rem; border:1px solid var(--border); border-radius:.6rem; font-size:.9rem; }
+.lang a.is-active{ background:var(--ink); color:#fff; border-color:var(--ink); }
+@media (max-width:560px){ .lang a{ padding:.3rem .5rem; } }
+
