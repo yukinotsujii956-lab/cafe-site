@@ -5,12 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Contact | Leaf & Latte</title>
   <meta name="description" content="お問い合わせ、予約リクエスト、アクセス情報。">
-  <link rel="stylesheet" href="css/style.css?v=9">
+  <link rel="stylesheet" href="css/style.css?v=10">
   <link rel="icon" href="images/favicon.png">
 </head>
 
 <body>
-  
 <header class="site-header">
   <div class="container nav">
     <a class="brand" href="index.html">
@@ -24,50 +23,50 @@
         <li><a href="about.html">About</a></li>
         <li><a class="active" href="contact.html">Contact</a></li>
       </ul>
-      <a href="contact.html" class="is-active" aria-label="日本語">JP</a>
-    <a href="en/contact.html" aria-label="English">EN</a>
+      <!-- 言語切替リンク -->
+      <div class="lang">
+        <a href="contact.html" class="is-active" aria-label="日本語">JP</a>
+        <a href="en/contact.html" aria-label="English">EN</a>
+      </div>
     </nav>
   </div>
 </header>
 
-  <main class="container section reveal">
-    <div class="head">
-      <h2>お問い合わせ / 予約</h2>
-      <p>下記フォームからご連絡ください（デモ／送信はされません）</p>
-    </div>
-    
-    <!-- ★ここに id="contact-form" を追加 -->
-    <form id="contact-form" class="form" action="https://formspree.io/f/xwpnwbeb" method="POST">
-      <div>
-        <label for="name">お名前</label>
-        <input id="name" name="name" required>
-      </div>
-      <div>
-        <label for="email">メールアドレス</label>
-        <input id="email" name="email" type="email" required>
-      </div>
-      <div class="full">
-        <label for="date">来店希望日</label>
-        <input id="date" name="date" type="date">
-      </div>
-      <div class="full">
-        <label for="msg">内容</label>
-        <textarea id="msg" name="message" placeholder="予約人数、時間などをご記入ください"></textarea>
-      </div>
-      <div class="full">
-        <button class="btn" type="submit">送信</button>
-      </div>
-    </form>
+<main class="container section reveal">
+  <div class="head">
+    <h2>お問い合わせ / 予約</h2>
+    <p>下記フォームからご連絡ください（デモ用／送信後はthanksページに移動します）</p>
+  </div>
 
-    <div class="section reveal">
-      <div class="head">
-        <h2>アクセス</h2>
-        <p>下の地図はサンプルです</p>
-      </div>
-      <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d404770.7271785947!2d140.365!3d42.885!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f73936bbd1e4c6b%3A0x7582a08a1e7b4d64!2sNiseko!5e0!3m2!1sen!2sjp!4v1700000000000" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  <!-- ★ フォーム本体 -->
+  <form id="contact-form" class="form" action="https://formspree.io/f/xwpnwbeb" method="POST">
+    <div>
+      <label for="name">お名前</label>
+      <input id="name" name="name" required>
     </div>
-  </main>
-  
+    <div>
+      <label for="email">メールアドレス</label>
+      <input id="email" name="email" type="email" required>
+    </div>
+    <div class="full">
+      <label for="date">来店希望日</label>
+      <input id="date" name="date" type="date">
+    </div>
+    <div class="full">
+      <label for="msg">内容</label>
+      <textarea id="msg" name="message" placeholder="予約人数、時間などをご記入ください"></textarea>
+    </div>
+    <div class="full">
+      <button class="btn" type="submit">送信</button>
+    </div>
+  </form>
+
+  <div class="section reveal">
+    <div class="head"><h2>アクセス</h2><p>下の地図はサンプルです</p></div>
+    <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d404770.7271785947!2d140.365!3d42.885" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </div>
+</main>
+
 <footer class="site-footer">
   <div class="container reveal">
     <div>© 2025 Leaf & Latte Coffee Roasters — Crafted in Niseko.</div>
@@ -75,28 +74,19 @@
   </div>
 </footer>
 
-<!-- ★ここにJSを追加 -->
+<!-- ★ 送信→thanks.html へ遷移させるJS -->
 <script>
-document.getElementById("contact-form").addEventListener("submit", function(e){
-  e.preventDefault(); // デフォルト送信をキャンセル
+document.getElementById("contact-form")?.addEventListener("submit", function(e){
+  e.preventDefault();
   const form = e.target;
   const data = new FormData(form);
-
-  fetch(form.action, {
-    method: form.method,
-    body: data,
-    headers: { 'Accept': 'application/json' }
-  }).then(response => {
-    if (response.ok) {
-      window.location.href = "thanks.html"; // 成功したらサンクスページへ
-    } else {
-      alert("送信に失敗しました。もう一度お試しください。");
-    }
-  }).catch(error => {
-    alert("エラーが発生しました: " + error);
-  });
+  fetch(form.action, { method: form.method, body: data, headers: { 'Accept': 'application/json' } })
+    .then(res => {
+      if (res.ok) { window.location.href = "thanks.html"; }
+      else { alert("送信に失敗しました。もう一度お試しください。"); }
+    })
+    .catch(err => { alert("エラーが発生しました: " + err); });
 });
 </script>
-
 </body>
 </html>
