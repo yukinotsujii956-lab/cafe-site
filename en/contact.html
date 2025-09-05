@@ -1,0 +1,38 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact | Leaf & Latte</title>
+<meta name="description" content="Inquiries, reservation requests, and access.">
+<link rel="stylesheet" href="../css/style.css?v=7">
+<link rel="alternate" hreflang="ja" href="https://yukinotsujii956-lab.github.io/cafe-site/contact.html">
+<link rel="alternate" hreflang="en" href="https://yukinotsujii956-lab.github.io/cafe-site/en/contact.html">
+<link rel="icon" href="../images/favicon.png">
+</head><body>
+<header class="site-header"><div class="container nav">
+  <a class="brand" href="index.html"><span class="logo"></span><span>Leaf & Latte</span></a>
+  <nav aria-label="Primary"><ul>
+    <li><a href="index.html">Home</a></li><li><a href="menu.html">Menu</a></li><li><a href="about.html">About</a></li><li><a class="active" href="contact.html">Contact</a></li>
+    <li><a href="../contact.html">JP</a></li>
+  </ul></nav>
+</div></header>
+
+<main class="container section reveal">
+  <div class="head"><h2>Contact / Reservation</h2><p>Please contact us via the form below (demo).</p></div>
+  <form class="form" action="https://formspree.io/f/xwpnwbeb" method="POST">
+    <div><label for="name">Name</label><input id="name" name="name" required></div>
+    <div><label for="email">Email</label><input id="email" name="email" type="email" required></div>
+    <div class="full"><label for="date">Preferred Date</label><input id="date" name="date" type="date"></div>
+    <div class="full"><label for="msg">Message</label><textarea id="msg" name="message" placeholder="Number of people, time, etc."></textarea></div>
+    <div class="full"><button class="btn" type="submit">Send</button>
+      <input type="hidden" name="_subject" value="Leaf & Latte Contact">
+      <input type="hidden" name="_language" value="en"></div>
+    <input type="hidden" name="_next" value="https://yukinotsujii956-lab.github.io/cafe-site/thanks.html">
+    <input type="text" name="_gotcha" style="display:none">
+  </form>
+</main>
+
+<footer class="site-footer"><div class="container">
+  <div>© 2025 Leaf & Latte Coffee Roasters — Crafted in Niseko.</div>
+  <div class="small mt-1">This is a demo site for a portfolio. All images are placeholders.</div>
+</div></footer>
+<script src="../js/app.js?v=3"></script>
+</body></html>
