@@ -5,31 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Contact | Leaf & Latte</title>
   <meta name="description" content="お問い合わせ、予約リクエスト、アクセス情報。">
-  <link rel="stylesheet" href="css/style.css">
-  <meta property="og:title" content="Leaf & Latte">
-  <meta property="og:description" content="ニセコの小さなロースタリーカフェ">
-  <meta property="og:image" content="images/og.jpg">
+  <link rel="stylesheet" href="css/style.css?v=9">
   <link rel="icon" href="images/favicon.png">
-  <meta name="theme-color" content="#3b7a57">
-  <!-- 基本 -->
-<meta name="description" content="お問い合わせ・予約・アクセス。">
-
-
-<!-- Twitter（X） -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Leaf & Latte | カフェ公式サイト">
-<meta name="twitter:description" content="お問い合わせ・予約・アクセス。">
-<meta name="twitter:image" content="images/og.jpg">
-
-<!-- Favicon（任意） -->
-<link rel="icon" href="images/favicon.png">
-
-<link rel="alternate" hreflang="ja" href="https://yukinotsujii956-lab.github.io/cafe-site/">
-<link rel="alternate" hreflang="en" href="https://yukinotsujii956-lab.github.io/cafe-site/en/">
-<link rel="alternate" hreflang="x-default" href="https://yukinotsujii956-lab.github.io/cafe-site/">
-
-<script defer data-domain="yukinotsujii956-lab.github.io/cafe-site" src="https://plausible.io/js/script.js"></script>
-
 </head>
 
 <body>
@@ -42,16 +19,11 @@
     </a>
     <nav aria-label="Primary">
       <ul>
-        <li><a class="" href="index.html">Home</a></li>
-        <li><a class="" href="menu.html">Menu</a></li>
-        <li><a class="" href="about.html">About</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="about.html">About</a></li>
         <li><a class="active" href="contact.html">Contact</a></li>
-        <li><a href="en/contact.html">EN</a></li>
-        <div class="lang">
-        <a href="contact.html" class="is-active" aria-label="日本語">JP</a>
-        <a href="en/contact.html" aria-label="English">EN</a>
-</div>
-     </ul>
+      </ul>
     </nav>
   </div>
 </header>
@@ -61,7 +33,9 @@
       <h2>お問い合わせ / 予約</h2>
       <p>下記フォームからご連絡ください（デモ／送信はされません）</p>
     </div>
-    <form class="form" action="https://formspree.io/f/xwpnwbeb" method="POST">
+    
+    <!-- ★ここに id="contact-form" を追加 -->
+    <form id="contact-form" class="form" action="https://formspree.io/f/xwpnwbeb" method="POST">
       <div>
         <label for="name">お名前</label>
         <input id="name" name="name" required>
@@ -80,33 +54,7 @@
       </div>
       <div class="full">
         <button class="btn" type="submit">送信</button>
-        <input type="hidden" name="_subject" value="Leaf & Latte 予約・問い合わせ">
-        <input type="hidden" name="_language" value="ja">
       </div>
-      <input type="hidden" name="_next" value="https://yukinotsujii956-lab.github.io/cafe-site/thanks.html">
-      <input type="text" name="_gotcha" style="display:none">
-      <form id="contact-form" class="form" action="https://formspree.io/f/xwpnwbeb" method="POST">
-        <script>
-document.getElementById("contact-form").addEventListener("submit", function(e){
-  e.preventDefault(); // デフォルト送信止める
-  const form = e.target;
-  const data = new FormData(form);
-
-  fetch(form.action, {
-    method: form.method,
-    body: data,
-    headers: { 'Accept': 'application/json' }
-  }).then(response => {
-    if (response.ok) {
-      window.location.href = "thanks.html"; // ←送信成功なら thanks.html へ
-    } else {
-      alert("送信に失敗しました。もう一度お試しください。");
-    }
-  }).catch(error => {
-    alert("エラーが発生しました: " + error);
-  });
-});
-</script>
     </form>
 
     <div class="section reveal">
@@ -123,11 +71,30 @@ document.getElementById("contact-form").addEventListener("submit", function(e){
     <div>© 2025 Leaf & Latte Coffee Roasters — Crafted in Niseko.</div>
     <div class="small mt-1">This is a demo site for a portfolio. All images are placeholders.</div>
   </div>
-  <div class="footer-lang">
-  <a href="contact.html" class="is-active" aria-label="日本語">JP</a>
-  <a href="en/contact.html" aria-label="English">EN</a>
-</div>
 </footer>
-  <script src="js/app.js?v=7"></script>
+
+<!-- ★ここにJSを追加 -->
+<script>
+document.getElementById("contact-form").addEventListener("submit", function(e){
+  e.preventDefault(); // デフォルト送信をキャンセル
+  const form = e.target;
+  const data = new FormData(form);
+
+  fetch(form.action, {
+    method: form.method,
+    body: data,
+    headers: { 'Accept': 'application/json' }
+  }).then(response => {
+    if (response.ok) {
+      window.location.href = "thanks.html"; // 成功したらサンクスページへ
+    } else {
+      alert("送信に失敗しました。もう一度お試しください。");
+    }
+  }).catch(error => {
+    alert("エラーが発生しました: " + error);
+  });
+});
+</script>
+
 </body>
 </html>
