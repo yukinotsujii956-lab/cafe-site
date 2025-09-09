@@ -5,49 +5,41 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Contact | Leaf & Latte</title>
   <meta name="description" content="お問い合わせ、予約リクエスト、アクセス情報。">
-  <link rel="stylesheet" href="css/style.css?v=12">
+  <link rel="stylesheet" href="css/style.css">
+  <meta property="og:title" content="Leaf & Latte">
+  <meta property="og:description" content="ニセコの小さなロースタリーカフェ">
+  <meta property="og:image" content="images/og.jpg">
   <link rel="icon" href="images/favicon.png">
-  <style>
-    /* 保険：もし外部CSSが読めなくても最低限見えるように */
-    body{background:#fffdf9;color:#2e2a27;font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Hiragino Sans","BIZ UDPGothic","Noto Sans JP"}
-    .container{width:min(1100px,92%);margin:0 auto}
-    .section{padding:2rem 0}
-    .form{display:grid;gap:1rem;grid-template-columns:1fr 1fr}
-    .form .full{grid-column:1/-1}
-    input,textarea{width:100%;padding:.8rem .9rem;border-radius:.8rem;border:1px solid #ece7e1;background:#fff}
-    button.btn{display:inline-block;padding:.75rem 1rem;border-radius:999px;border:1px solid #2e2a27;background:transparent}
-  </style>
 </head>
 
 <body>
-<header class="site-header" style="border-bottom:1px solid #ece7e1;background:rgba(255,253,249,.9)">
-  <div class="container" style="display:flex;align-items:center;justify-content:space-between;padding:.75rem 0">
-    <a class="brand" href="index.html" style="display:flex;align-items:center;gap:.6rem;font-weight:700">
-      <span class="logo" aria-hidden="true" style="width:28px;height:28px;border-radius:7px;background:linear-gradient(135deg,#3b7a57,#c58b5f);display:inline-block"></span>
+<header class="site-header">
+  <div class="container nav">
+    <a class="brand" href="index.html">
+      <span class="logo" aria-hidden="true"></span>
       <span>Leaf & Latte</span>
     </a>
     <nav aria-label="Primary">
-      <ul style="display:flex;gap:1rem;list-style:none;margin:0;padding:0">
+      <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="menu.html">Menu</a></li>
         <li><a href="about.html">About</a></li>
-        <li><a class="active" href="contact.html" style="padding:.5rem .75rem;border-radius:.6rem;background:#2e2a27;color:#fff">Contact</a></li>
+        <li><a class="active" href="contact.html">Contact</a></li>
       </ul>
     </nav>
-    <div class="lang" style="display:flex;gap:.5rem;margin-left:.75rem">
-      <a href="contact.html" class="is-active" aria-label="日本語" style="padding:.35rem .6rem;border:1px solid #ece7e1;border-radius:.6rem;background:#2e2a27;color:#fff">JP</a>
-      <a href="en/contact.html" aria-label="English" style="padding:.35rem .6rem;border:1px solid #ece7e1;border-radius:.6rem">EN</a>
+    <div class="lang-switch">
+      <a href="contact.html" class="is-active" aria-label="日本語">JP</a>
+      <a href="en/contact.html" aria-label="English">EN</a>
     </div>
   </div>
 </header>
 
-<main class="container section">
-  <div class="head" style="margin-bottom:1rem">
-    <h2 style="margin:0 0 .5rem">お問い合わせ / 予約</h2>
-    <p style="margin:0;color:#6b655f">下記フォームからご連絡ください（デモ）</p>
+<main class="container section reveal">
+  <div class="head">
+    <h2>お問い合わせ / 予約</h2>
+    <p>下記フォームからご連絡ください（デモ／送信はされません）</p>
   </div>
 
-  <!-- フォーム本体：まずは確実に表示させる -->
   <form id="contact-form" class="form" action="https://formspree.io/f/xwpnwbeb" method="POST">
     <div>
       <label for="name">お名前</label>
@@ -65,44 +57,50 @@
       <label for="msg">内容</label>
       <textarea id="msg" name="message" placeholder="予約人数、時間などをご記入ください"></textarea>
     </div>
-
-    <!-- フォールバック用：Formspreeが対応していればこのURLに遷移 -->
-    <input type="hidden" name="_next" value="https://yukinotsujii956-lab.github.io/cafe-site/thanks.html">
-
     <div class="full">
       <button class="btn" type="submit">送信</button>
+      <input type="hidden" name="_subject" value="Leaf & Latte 予約・問い合わせ">
+      <input type="hidden" name="_language" value="ja">
+      <!-- ✅ _next は削除 -->
     </div>
+    <input type="text" name="_gotcha" style="display:none">
   </form>
 
-  <div class="section">
-    <div class="head" style="margin-bottom:1rem">
-      <h2 style="margin:0 0 .5rem">アクセス</h2>
-      <p style="margin:0;color:#6b655f">下の地図はサンプルです</p>
+  <div class="section reveal">
+    <div class="head">
+      <h2>アクセス</h2>
+      <p>下の地図はサンプルです</p>
     </div>
-    <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d404770.7271785947!2d140.365!3d42.885" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" style="border:1px solid #ece7e1;border-radius:1rem;width:100%;height:360px"></iframe>
+    <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d404770.7271785947!2d140.365!3d42.885!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f73936bbd1e4c6b%3A0x7582a08a1e7b4d64!2sNiseko!5e0!3m2!1sen!2sjp!4v1700000000000"
+      allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
   </div>
 </main>
 
-<footer class="site-footer" style="border-top:1px solid #ece7e1;padding:2rem 0;margin-top:3rem;color:#6b655f">
+<footer class="site-footer">
   <div class="container">
     <div>© 2025 Leaf & Latte Coffee Roasters — Crafted in Niseko.</div>
-    <div style="font-size:.9rem;margin-top:.5rem">This is a demo site for a portfolio. All images are placeholders.</div>
+    <div class="small mt-1">This is a demo site for a portfolio. All images are placeholders.</div>
   </div>
 </footer>
 
-<!-- 送信成功で thanks.html に確実に遷移（fetch成功時） -->
+<!-- ✅ 成功時にJSで thanks.html に遷移 -->
 <script>
 document.getElementById("contact-form")?.addEventListener("submit", function(e){
   e.preventDefault();
   const form = e.target;
   const data = new FormData(form);
-  fetch(form.action, { method: form.method, body: data, headers: { 'Accept': 'application/json' } })
-    .then(res => { if (res.ok) location.href = "thanks.html"; else alert("送信に失敗しました。もう一度お試しください。"); })
-    .catch(err => alert("エラーが発生しました: " + err));
+  fetch(form.action, {
+    method: form.method,
+    body: data,
+    headers: { 'Accept': 'application/json' }
+  }).then(res => {
+    if (res.ok) {
+      window.location.href = "thanks.html?v=" + Date.now();
+    } else {
+      alert("送信に失敗しました。もう一度お試しください。");
+    }
+  }).catch(err => alert("エラーが発生しました: " + err));
 });
 </script>
-
-<!-- スクロール演出のJSは、落ち着いてから戻せばOK -->
-<!-- <script src="js/app.js?v=1"></script> -->
 </body>
 </html>
