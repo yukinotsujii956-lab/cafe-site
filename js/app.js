@@ -1,13 +1,26 @@
-// Intersection Observer で .reveal / .reveal-stagger を監視
+// js/app.js もしくは js/apps.js
 (() => {
-  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (prefersReduced) return; // 動きを減らす指定なら何もしない
+  const showAll = () => {
+    document.querySelectorAll('.reveal, .reveal-stagger')
+      .forEach(el => el.classList.add('is-visible'));
+  };
+
+  // ユーザーが「動きを減らす」→ 表示はする（演出だけ無効）
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    showAll(); 
+    return;
+  }
+
+  // IntersectionObserver 非対応なら、即時表示
+  if (!('IntersectionObserver' in window)) {
+    showAll();
+    return;
+  }
 
   const obs = new IntersectionObserver((entries) => {
     entries.forEach((e) => {
       if (e.isIntersecting) {
         e.target.classList.add('is-visible');
-        // 一度表示したら監視解除（無駄な処理を減らす）
         obs.unobserve(e.target);
       }
     });
@@ -15,3 +28,4 @@
 
   document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => obs.observe(el));
 })();
+
