@@ -1,0 +1,13 @@
+{
+  "name": "Leaf & Latte",
+  "short_name": "Leaf&Latte",
+  "start_url": "/cafe-site/",
+  "scope": "/cafe-site/",
+  "display": "standalone",
+  "theme_color": "#3b7a57",
+  "background_color": "#fffdf9",
+  "icons": [
+    { "src": "images/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "images/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}
